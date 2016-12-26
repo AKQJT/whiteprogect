@@ -1,4 +1,14 @@
-<?php require_once ("config/config.php"); ?>
+<?php 
+session_start();
+require_once ("config/config.php");
+ if($_SESSION['id']){
+	 $query="SELECT * FROM users WHERE id = ".$_SESSION['id'];
+	 $auth = mysqli_query($dbcon, $query);
+     $auth_user = mysqli_fetch_array($auth);	 
+ }
+ ?>
+
+
 
 <!doctype html>
 <html>
@@ -21,6 +31,25 @@
   sizes ="(max-width: 980px) 300px, (min-width: 980px) 600px"
   alt="icrypto">
 
+<?php
+  if ($_SESSION['id']){
+?>
+	 <a href = "/cabinet.php" class = 'btn btn-link my'> кабинет <?=($auth_user['login'])?$auth_user['login']:'пользователь';?> </a>
+	 <a href = "/logout.php" class = 'btn btn-link my'> выход </a>
+	 
+<?php
+  }
+  else {
+?>
+ <a href = "/reg.php" class = 'btn btn-link my'>
+ регистрация
+ </a>
+  <a href = "/login.php" class = 'btn btn-link my'>
+ авторизация
+ </a>
+ <?php
+  }
+?> 
 </header>
 
 <nav class="topmenu">
