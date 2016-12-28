@@ -1,13 +1,13 @@
 <?php 
 session_start();
 require_once ("config/config.php");
+require_once("libs/functions.php");
+
  if($_SESSION['id']){
 	 $query="SELECT * FROM users WHERE id = ".$_SESSION['id'];
-	 $auth = mysqli_query($dbcon, $query);
-     $auth_user = mysqli_fetch_array($auth);	 
+     $auth_user = selectone($query);	 
  }
  ?>
-
 
 
 <!doctype html>

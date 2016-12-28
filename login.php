@@ -1,32 +1,32 @@
 <?php require_once('templates/top.php');
-if ($_POST) {
-$name = $_POST['name'];
-$pass = $_POST['pass'];
+if ($_POST) {                                                              //если пользователь ввел значения ($_POST = TRUE) выполняем
+$name = $_POST['name'];       // ?? почему квадратные скобки?              // создаем переменную $name cо значеним введенном в поле Логин
+$pass = $_POST['pass'];                                                   // создаем переменную $pass со значением введенном в поле Pass
 
-$query = "SELECT * FROM users WHERE login = '$name' AND pass = '$pass'";
-$cat = mysqli_query ($dbcon, $query);
- if(!$cat){
+$query = "SELECT * FROM users WHERE login = '$name' AND pass = '$pass'";    // создаем переменную с командой, но пока не выполняется она   
+$cat = mysqli_query ($dbcon, $query);                                       // создаем переменную но не выполняем
+ if(!$cat){                                                                 // обращаемся к переменной $cat, выполняем если значение false, в противном случае в $cat будут записаны все строки из массивов $name', '$pass'
 	 exit ('ошибка запроса');
 	 }
  $user = mysqli_fetch_array($cat);
 
-  if ($user['id']){
-      $_SESSION['id']= $user['id'];
-	      $query = "upadate users SET lastvisit = NOW() WHERE id = ".$_SESSION['id'];
+  if ($user['id']){                                                                     // ЗДЕСЬ не понимаю в каком случае будет TRUE и FALSE
+      $_SESSION['id']= $user['id'];                                                     // КАКОЕ ЗНАЧЕНИЕ у ID во время выполнения программы
+	      $query = "upadate users SET lastvisit = NOW() WHERE id = ".$_SESSION['id'];   // присваиваем переменной $query другое значение и теперь она будет содержать не ту строку что в начале страницы!!????
    ?> 
  
-   <script>
-     location.href="cabinet.php";
+   <script>                                      //ява скрипт ссылки на выполняемый файл
+     location.href="cabinet.php";                
    </script>
- <?php	
+ <?php	                                       
     }
-  else {
-	 echo 'не верный логин или пароль';
+  else {                                       // зачем else? разве программа сама по себе не продолжит выполнение после If если условие будет не TRUE
+	 echo 'не верный логин или пароль';      
   }
 }
 ?>
 
-<form method="post" action="login.php">
+<form method="post" action="login.php">                          
 
 
  <div class="form-group">

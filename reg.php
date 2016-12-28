@@ -1,29 +1,30 @@
 <?php require_once('templates/top.php');
+      require_once('libs/functions.php');
 if ($_POST) {
 $email = $_POST ['email'];
 $name = $_POST ['name'];
 $pass = $_POST ['pass'];
 $pass2 = $_POST ['pass2'];
-$error = [];
+$error = [];                                    // для чего эта переменная?
 
 $query = "SELECT * FROM users WHERE login = '$name'";
    $us = mysqli_query($dbcon, $query);
-     if(!$us) {
-		 exit ('логин занят');
+     if(!$us) {                 
+		 exit;
      }
 $already = mysqli_fetch_array ($us);
      if($already['id']){
-	$error[]='пользователь с таким именем существоет';
+	$error[]='пользователь с таким именем существyет';   //почему именно массив?
 }
 
-$query = "SELECT * FROM users WHERE email = '$email'";
+$query = "SELECT * FROM users WHERE email = '$email'"; 
    $us = mysqli_query($dbcon, $query);
      if(!$us) {
 		 exit ('email занят');
      }
 $already = mysqli_fetch_array ($us);
      if($already['id']){
-	$error[]='пользователь с такой почтой существоет';
+	$error[]='пользователь с такой почтой существоет';    
 }
 
 
@@ -32,7 +33,7 @@ $already = mysqli_fetch_array ($us);
     $error [] = "пароль не совпадает";
   }
   
-  if ($error){
+  if ($error){                    // в каких случаях выполняется, когда true и false
 
 
 	  foreach($error as $one) {
@@ -52,15 +53,7 @@ $already = mysqli_fetch_array ($us);
 				'unblock'
 	          )";
 			  
-	     $in=mysqli_query ($dbcon, $query);
-	  if (!$in) {
-		  exit ('ошибка запроса');
-	  }
- ?> 
-   <script>
-     location.href="index.php";
-   </script>
- <?php	  
+	     insert ($query,'reg.php');
      }
 }
 ?>

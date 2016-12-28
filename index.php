@@ -1,23 +1,14 @@
 <?php require_once('templates/top.php');
+require_once('libs/functions.php');
 if ($_GET['url']){
 	$file=$_GET['url'];
 }
 else {
 	$file = 'index';
 }
-$result = mysqli_query($dbcon, "SELECT * FROM maintexts WHERE url='$file'");
+$query = "SELECT * FROM maintexts WHERE url='$file'";
 
-if (!$result) {            //проверка на наличие ошибок в коде с остановкой выполнения программы
-	exit ('errors');
-	}
-
-//if($_GET){                                   // возвращает ссылку
-//	print_r($_GET);
-//}
-
-
-
-$row = mysqli_fetch_array($result);
+$row = selectone($query);
 
 //echo "<pre>";                     //  проверям получаем лди данные из базы данных (убрать слеши коментария из кода)
 //print_r($row);
