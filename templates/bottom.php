@@ -4,7 +4,18 @@
 
 <div class ="col-md-3 rightmenu">
   <h3>Правая колонка</h3>
-  <p>Этот текст, который может включать любое количество строк, не появится на веб-странице в браузере</p>
+  <p>
+  <?php 
+  if($account_user['avatar']){ ?>
+     <img src ="/media/photos/<?php echo $row['avatar']?>"
+      close="img-circle"
+<?php 
+} 
+    else { ?>
+     <img src="/media/photos/default.png"  class = 'img-circle' />
+<?php }
+?>
+  </p>
 </div>
  </div>
 <footer>

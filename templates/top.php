@@ -4,8 +4,10 @@ require_once ("config/config.php");
 require_once("libs/functions.php");
 
  if($_SESSION['id']){
-	 $query="SELECT * FROM users WHERE id = ".$_SESSION['id'];
+	  $query="SELECT * FROM users WHERE id = ".$_SESSION['id'];
+	  $query2="SELECT * FROM accaunts WHERE user_id = ".$_SESSION['id'];
      $auth_user = selectone($query);	 
+     $account_user = selectone($query2);	 
  }
  ?>
 
