@@ -3,6 +3,7 @@ session_start();
 require_once ("config/config.php");
 require_once("libs/functions.php");
 
+
  if($_SESSION['id']){
 	  $query="SELECT * FROM users WHERE id = ".$_SESSION['id'];
 	  $query2="SELECT * FROM accaunts WHERE user_id = ".$_SESSION['id'];
@@ -52,14 +53,15 @@ require_once("libs/functions.php");
  <?php
   }
 ?> 
+<div class="empty"></div>
 </header>
 
 <nav class="topmenu">
-<a href="/" > главная </a>
-<a href="#" > новости </a>
-<a href="#" > информация </a>
-<a href="#" > курсы </a>
-<a href="index.php?url=contakty" > контакты </a>
+<a href="/" data-title="главная страница" data-body="главная страница" data-img="" data-color="blue"> главная </a> 
+<a href="#" data-title="навины" data-body="новости" data-img="" data-color="white"> новости </a>
+<a href="#" data-title="инфа" data-body="информация" data-img="" data-color="green"> информация </a>
+<a href="#" data-title="курсы" data-body="курсы" data-img="" data-color="orange"> курсы </a>
+<a href="index.php?url=contakty" data-title="контакты" data-body="контакты" data-img="" data-color="black"> контакты </a>
 </nav>
 
 <div id="cont">

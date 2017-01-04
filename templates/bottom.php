@@ -25,3 +25,6 @@
 
 </body>
 </html>
+
+<script src="/media/js/jquery.min.js"></script>
+<script src="/media/js/main.js"></script>
