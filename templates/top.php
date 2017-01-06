@@ -60,7 +60,7 @@ require_once("libs/functions.php");
 <a href="/" data-title="главная страница" data-body="главная страница" data-img="" data-color="blue"> главная </a> 
 <a href="#" data-title="навины" data-body="новости" data-img="" data-color="white"> новости </a>
 <a href="#" data-title="инфа" data-body="информация" data-img="" data-color="green"> информация </a>
-<a href="#" data-title="курсы" data-body="курсы" data-img="" data-color="orange"> курсы </a>
+<a href="/product.php" data-title="продукты" data-body="продукты" data-img="" data-color="orange"> продукты </a>
 <a href="index.php?url=contakty" data-title="контакты" data-body="контакты" data-img="" data-color="black"> контакты </a>
 </nav>
 
