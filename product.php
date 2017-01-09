@@ -18,9 +18,9 @@ $cat = mysqli_query ($dbcon,$query);
         }
      ?>
      <img src="<?=$pic?>" class="pica"/>
-     <div class = 'phone'>
+     <div class = 'address'>
      <a href ="#" class = "link" data-id="<?=$arr['id']?>">
-     <?=$arr['phone'];?>
+     <?=$arr['address'];?>
  </a>
  </div>
 </div> 
