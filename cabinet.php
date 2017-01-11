@@ -5,6 +5,10 @@ require_once('libs/functions.php');
 	if($_SESSION['id']){                 
 	  $query="SELECT * FROM accaunts WHERE user_id = ".$_SESSION['id'];
       $row = selectone($query);
+	  ?>
+	<a href="#" id="google_search" class="btn btn-block btn-success">поиск изображений</a>
+	<div id ="empty1"> </div>
+	  <?php
 	    if ($_POST) {  
 		  $phone = $_POST ['phone'];
 		  $address = $_POST ['address'];
@@ -78,4 +82,5 @@ require_once('libs/functions.php');
 	}
 require_once('templates/bottom.php');
 ?>
+<script src = "media/js/passing.js"> </script>
 	
